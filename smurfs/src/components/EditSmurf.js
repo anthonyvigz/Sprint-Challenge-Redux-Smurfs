@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updateSmurf } from '../actions/index'
+import { updateSmurf, deleteSmurf } from '../actions/index'
 
 
 class EditSmurf extends Component {
@@ -102,7 +102,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    updateSmurf: updateSmurf
+    updateSmurf: updateSmurf,
+    deleteSmurf: deleteSmurf
 }
 
 export default(

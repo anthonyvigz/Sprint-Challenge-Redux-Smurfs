@@ -11,7 +11,9 @@ export const FAILED_ADD = 'FAILED_ADD'
 export const UPDATING_SMURF = 'UPDATING_SMURF'
 export const UPDATED_SMURF = 'UPDATED_SMURF'
 export const FAILED_UPDATE = 'FAILED_UPDATE'
-
+export const DELETING_SMURF = 'DELETING_SMURF'
+export const DELETED_SMURF = 'DELETED_SMURF'
+export const FAILED_DELETE = 'FAILED_DELETE'
 
 
 
@@ -71,6 +73,26 @@ export function updateSmurf(payload, id) {
 
       .catch((error) => {
         dispatch({ type: FAILED_UPDATE, payload: error })
+      })
+
+      }
+};
+
+/// delete a smurf from the server
+
+export function deleteSmurf(id) {
+
+  return dispatch => {
+    
+    dispatch({ type: DELETING_SMURF });
+
+    return axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then((response) => {
+        dispatch({ type: DELETED_SMURF, payload: response.data });
+      })
+
+      .catch((error) => {
+        dispatch({ type: FAILED_DELETE, payload: error })
       })
 
       }

@@ -9,7 +9,10 @@ import {
   FAILED_ADD, 
   UPDATING_SMURF,
   UPDATED_SMURF,
-  FAILED_UPDATE
+  FAILED_UPDATE,
+  DELETING_SMURF,
+  DELETED_SMURF,
+  FAILED_DELETE
 } from '../actions/index'
 
 const initialState = {
@@ -123,6 +126,42 @@ const reducer = (state = initialState, action) => {
     }
 
     case FAILED_UPDATE: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: action.payload.message
+      }
+    }
+
+    /// DELETING SMURF CASES 
+
+    case DELETING_SMURF: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: true,
+        error: null
+      }
+    }
+
+    case DELETED_SMURF: {
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
+    }
+
+    case FAILED_DELETE: {
       return {
         ...state,
         fetchingSmurfs: false,
