@@ -13,8 +13,19 @@ class SmurfVillage extends Component {
         }
     }
 
+    /// handles the value change in the form
+
+    handleChange = (event) => {
+        event.preventDefault();
+
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     render() {
         const { smurfs } = this.props;
+        const { name, age, height } = this.state;
 
         /// returns the Smurf cards that have info for each smurf
 
@@ -26,9 +37,9 @@ class SmurfVillage extends Component {
                 })}
                 </div>
                 <form>
-                    <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
-                    <input type="number" name="age" placeholder="Age" onChange={this.handleChange} />
-                    <input type="text" name="height" placeholder="Height" onChange={this.handleChange} />
+                    <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} />
+                    <input type="number" name="age" value={age} placeholder="Age" onChange={this.handleChange} />
+                    <input type="text" name="height" value={height} placeholder="Height" onChange={this.handleChange} />
                     <button type="submit">Add Smurf!</button>
                 </form>
             </div>
