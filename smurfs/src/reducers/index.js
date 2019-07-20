@@ -59,7 +59,14 @@ const reducer = (state = initialState, action) => {
     }
 
     case FAILED_SMURFS: {
-
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: action.payload.message
+      }
     }
 
     case ADDING_SMURF: {
@@ -82,6 +89,17 @@ const reducer = (state = initialState, action) => {
         updatingSmurf: false,
         deletingSmurf: false,
         error: null
+      }
+    }
+
+    case FAILED_ADD: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: action.payload.message
       }
     }
 
