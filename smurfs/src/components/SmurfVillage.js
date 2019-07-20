@@ -30,9 +30,16 @@ class SmurfVillage extends Component {
     addSmurf = (event) => {
         event.preventDefault();
 
-        const { name, age, height } = this.state;
+        const { name, age, height, smurfs } = this.state;
 
         this.props.addSmurf({ name, age, height })
+
+        this.setState({
+            ...smurfs,
+            name: '',
+            age: '',
+            height: ''
+        })
     }
 
     render() {
