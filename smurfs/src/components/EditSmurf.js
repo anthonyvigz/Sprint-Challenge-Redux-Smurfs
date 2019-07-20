@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { } from '../actions/index'
+import { updateSmurf } from '../actions/index'
 
 
 class EditSmurf extends Component {
@@ -23,6 +23,25 @@ class EditSmurf extends Component {
         height: smurf.height
     })
   }
+
+  handleChange = (event) => {
+    event.preventDefault();
+
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+  }
+
+  /// sends the new updated smurf to the actions to update the server then state
+
+  updateSmurf = (event) => {
+      event.preventDefault();
+
+      const { name, age, height } = this.state;
+
+    this.props.updateSmurf({ name, age, height })
+  }
+
 
   render() {
 
@@ -65,9 +84,13 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = {
+    updateSmurf: updateSmurf
+}
+
 export default(
 	connect(
 		mapStateToProps,
-		null,
+		mapDispatchToProps,
 	)(EditSmurf)
 )
