@@ -30,7 +30,31 @@ class EditSmurf extends Component {
       const { name, age, height } = this.state
       
       return (
-        <h1>{name}</h1>
+        <div className="SmurfForm">
+        <h1>Edit Smurf!</h1>
+        <form onSubmit={this.changeSmurf}>
+          <input
+            onChange={this.handleChange}
+            placeholder="name"
+            value={name}
+            name="name"
+          />
+          <input
+            onChange={this.handleChange}
+            placeholder="age"
+            value={age}
+            name="age"
+          />
+          <input
+            onChange={this.handleChange}
+            placeholder="height"
+            value={height}
+            name="height"
+          />
+          <button type="submit">Update Smurf</button>
+          <button onClick={this.deleteSmurf}>Delete</button>
+        </form>
+      </div>
       )
   }
 }

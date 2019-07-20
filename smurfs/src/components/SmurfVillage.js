@@ -47,7 +47,7 @@ class SmurfVillage extends Component {
             <div>
                 <div className="smurfcards">
                 {smurfs.map((smurf) => {
-                    return <Link to={`/smurfs/${smurf.id}`}><Smurf smurf={smurf} key={smurf.id} /></Link>
+                    return <Link to={`/smurfs/${smurf.id}`} key={smurf.id}><Smurf smurf={smurf} key={smurf.id} /></Link>
                 })}
                 </div>
                 <form onSubmit={this.addSmurf}>
