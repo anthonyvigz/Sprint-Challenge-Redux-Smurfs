@@ -52,6 +52,13 @@ class SmurfVillage extends Component {
 
         return (
             <div className="cardsandform">
+                <form onSubmit={this.addSmurf}>
+                    <h1>Add a Smurf!</h1>
+                    <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} />
+                    <input type="number" name="age" value={age} placeholder="Age" onChange={this.handleChange} />
+                    <input type="text" name="height" value={height} placeholder="Height" onChange={this.handleChange} />
+                    <button type="submit">Add Smurf!</button>
+                </form>
                 <div className="smurfcards">
                 {smurfs.map((smurf) => {
                     return (
@@ -62,13 +69,6 @@ class SmurfVillage extends Component {
                     )
                 })}
                 </div>
-                <form onSubmit={this.addSmurf}>
-                    <h1>Add a Smurf!</h1>
-                    <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} />
-                    <input type="number" name="age" value={age} placeholder="Age" onChange={this.handleChange} />
-                    <input type="text" name="height" value={height} placeholder="Height" onChange={this.handleChange} />
-                    <button type="submit">Add Smurf!</button>
-                </form>
             </div>
         )
     }
