@@ -3,6 +3,8 @@ import './App.css';
 import { getSmurfs } from '../actions/index'
 import { connect } from 'react-redux'
 import SmurfVillage from './SmurfVillage'
+import { Route } from 'react-router-dom'
+import EditSmurf from './EditSmurf'
 
 /*
  to wire this component up you're going to need a few things.
@@ -24,6 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfVillage />
+        <Route path="/smurfs/:id" component={EditSmurf} />
       </div>
     );
   }

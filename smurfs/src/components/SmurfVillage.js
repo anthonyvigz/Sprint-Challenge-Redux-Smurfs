@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Smurf from './Smurf'
 import { addSmurf } from '../actions/index'
+import { Link } from 'react-router-dom'
 
 class SmurfVillage extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class SmurfVillage extends Component {
 
         const { name, age, height } = this.state;
 
-        this.props.addSmurf({ name, age, height, id: Date.now() })
+        this.props.addSmurf({ name, age, height })
     }
 
     render() {
@@ -46,7 +47,7 @@ class SmurfVillage extends Component {
             <div>
                 <div className="smurfcards">
                 {smurfs.map((smurf) => {
-                    return <Smurf smurf={smurf} key={smurf.id} />
+                    return <Link to={`/smurfs/${smurf.id}`}><Smurf smurf={smurf} key={smurf.id} /></Link>
                 })}
                 </div>
                 <form onSubmit={this.addSmurf}>
