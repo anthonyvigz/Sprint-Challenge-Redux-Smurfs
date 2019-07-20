@@ -66,31 +66,31 @@ class EditSmurf extends Component {
       
       return (
         <div className="SmurfForm">
-        <h1>Edit Smurf!</h1>
-        <h1>{name}</h1>
-        <form onSubmit={this.updateSmurf}>
-          <input
-            onChange={this.handleChange}
-            placeholder="name"
-            value={name}
-            name="name"
-          />
-          <input
-            onChange={this.handleChange}
-            placeholder="age"
-            value={age}
-            name="age"
-          />
-          <input
-            onChange={this.handleChange}
-            placeholder="height"
-            value={height}
-            name="height"
-          />
-          <button type="submit">Update Smurf</button>
-          <button onClick={this.deleteSmurf}>Delete</button>
-        </form>
-      </div>
+            <h1>Edit Smurf!</h1>
+            <div className="smurfname">{name}</div>
+            <form onSubmit={this.updateSmurf}>
+                <input
+                    onChange={this.handleChange}
+                    placeholder="name"
+                    value={name}
+                    name="name"
+                />
+                <input
+                    onChange={this.handleChange}
+                    placeholder="age"
+                    value={age}
+                    name="age"
+                />
+                <input
+                    onChange={this.handleChange}
+                    placeholder="height"
+                    value={height}
+                    name="height"
+                />
+            <button type="submit">Update Smurf</button>
+            <button className="delete" onClick={this.deleteSmurf}>Delete</button>
+            </form>
+        </div>
       )
   }
 }
