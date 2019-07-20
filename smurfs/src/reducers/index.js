@@ -5,7 +5,10 @@
 import { 
   LOADING_SMURFS,
   LOADED_SMURFS,
-  FAILED_SMURFS 
+  FAILED_SMURFS,
+  ADDING_SMURF,
+  ADDED_SMURF,
+  FAILED_ADD, 
 } from '../actions/index'
 
 /*
@@ -57,6 +60,29 @@ const reducer = (state = initialState, action) => {
 
     case FAILED_SMURFS: {
 
+    }
+
+    case ADDING_SMURF: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: true,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
+    }
+
+    case ADDED_SMURF: {
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
     }
 
     default: {
