@@ -16,13 +16,21 @@ class SmurfVillage extends Component {
     render() {
         const { smurfs } = this.props;
 
-        console.log(smurfs)
+        /// returns the Smurf cards that have info for each smurf
 
         return (
             <div>
+                <div className="smurfcards">
                 {smurfs.map((smurf) => {
-                    return <Smurf smurf={smurf} />
+                    return <Smurf smurf={smurf} key={smurf.id} />
                 })}
+                </div>
+                <form>
+                    <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
+                    <input type="number" name="age" placeholder="Age" onChange={this.handleChange} />
+                    <input type="text" name="height" placeholder="Height" onChange={this.handleChange} />
+                    <button type="submit">Add Smurf!</button>
+                </form>
             </div>
         )
     }
