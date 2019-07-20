@@ -1,8 +1,6 @@
-/* 
-  Action Types Go Here!
-  Be sure to export each action type so you can pull it into your reducer
-*/
 import axios from 'axios'
+
+/// export action types 
 
 export const LOADING_SMURFS = 'LOADING_SMURFS'
 export const LOADED_SMURFS = 'LOADED_SMURFS'
@@ -15,16 +13,6 @@ export const UPDATED_SMURF = 'UPDATED_SMURF'
 export const FAILED_UPDATE = 'FAILED_UPDATE'
 
 
-/*
-  For this project you'll need at least 2 action creators for the main portion,
-   and 2 more for the stretch problem.
-   Be sure to include action types for each type of action creator. Also, be sure to mind
-     the "pending" states like, fetching, creating, updating and deleting.
-   C - addSmurf
-   R - getSmurfs
-   U - updateSmurf
-   D - deleteSmurf
-*/
 
 
 // loads the smurfs to the state 
@@ -47,6 +35,8 @@ export function getSmurfs() {
       }
 };
 
+/// adds a smurf to the server
+
 export function addSmurf(payload) {
 
   return dispatch => {
@@ -64,6 +54,9 @@ export function addSmurf(payload) {
 
       }
 };
+
+
+/// updates a smurf on the server
 
 export function updateSmurf(payload, id) {
 
