@@ -2,6 +2,12 @@
   Be sure to import in all of the action types from `../actions`
 */
 
+import { 
+  LOADING_SMURFS,
+  LOADED_SMURFS,
+  FAILED_SMURFS 
+} from '../actions/index'
+
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
  {
@@ -24,7 +30,24 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  return state
+  switch(action.type) {
+
+    case LOADING_SMURFS: {
+
+    }
+
+    case LOADED_SMURFS: {
+
+    }
+
+    case FAILED_SMURFS: {
+
+    }
+
+    default: {
+      return state;
+    }
+  }
 }
 
 /*

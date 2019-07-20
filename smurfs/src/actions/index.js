@@ -4,7 +4,9 @@
 */
 import axios from 'axios'
 
-export const LOADING_SMURFS = 'FETCHING_SMURFS'
+export const LOADING_SMURFS = 'LOADING_SMURFS'
+export const LOADED_SMURFS = 'LOADED_SMURFS'
+export const FAILED_SMURFS = 'FAILED_SMURFS'
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -20,12 +22,13 @@ export const LOADING_SMURFS = 'FETCHING_SMURFS'
 export function getSmurfs() {
   
   return dispatch => {
+    
     dispatch({ type: LOADING_SMURFS });
 
     return axios.get('http://localhost:3333/smurfs/')
       .then((response) => {
-        dispatch({ type: LOADED_SMURFS, payload: response.data 
-        });
+        dispatch({ type: LOADED_SMURFS, payload: response.data });
+      })
 
       .catch((error) => {
         dispatch({ type: FAILED_SMURFS, payload: error })
@@ -33,4 +36,3 @@ export function getSmurfs() {
 
       }
   };
-}
