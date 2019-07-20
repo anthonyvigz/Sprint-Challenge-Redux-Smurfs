@@ -19,6 +19,9 @@ export const FAILED_SMURFS = 'FAILED_SMURFS'
    D - deleteSmurf
 */
 
+
+// loads the smurfs to the state 
+
 export function getSmurfs() {
   
   return dispatch => {

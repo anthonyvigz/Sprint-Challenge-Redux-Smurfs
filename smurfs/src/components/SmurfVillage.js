@@ -13,15 +13,29 @@ class SmurfVillage extends Component {
     }
 
     render() {
+        const { smurfs } = this.props;
+
+        console.log(smurfs)
+
         return (
-            <h1>hey</h1>
+            <div>
+                {smurfs.map((smurf) => {
+                    return <h1>{smurf.name}</h1>
+                })}
+            </div>
         )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        smurfs: state.smurfs
     }
 }
 
 export default(
 	connect(
-		null,
+		mapStateToProps,
 		null,
 	)(SmurfVillage)
 )
