@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { getSmurfs } from '../actions/index'
+import { connect } from 'react-redux'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -11,7 +13,7 @@ class App extends Component {
   
   
   componentDidMount() {
-    
+    this.props.getSmurfs();
   }
   
   
@@ -27,4 +29,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  getSmurfs: getSmurfs
+}
+
+export default(
+	connect(
+		null,
+		mapDispatchToProps,
+	)(App)
+)
