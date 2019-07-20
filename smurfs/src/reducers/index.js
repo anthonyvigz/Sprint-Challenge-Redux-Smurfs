@@ -9,6 +9,9 @@ import {
   ADDING_SMURF,
   ADDED_SMURF,
   FAILED_ADD, 
+  UPDATING_SMURF,
+  UPDATED_SMURF,
+  FAILED_UPDATE
 } from '../actions/index'
 
 /*
@@ -93,6 +96,40 @@ const reducer = (state = initialState, action) => {
     }
 
     case FAILED_ADD: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: action.payload.message
+      }
+    }
+
+    case UPDATING_SMURF: {
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: true,
+        deletingSmurf: false,
+        error: null
+      }
+    }
+
+    case UPDATED_SMURF: {
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
+    }
+
+    case FAILED_UPDATE: {
       return {
         ...state,
         fetchingSmurfs: false,

@@ -10,7 +10,8 @@ class EditSmurf extends Component {
       smurfs: [],
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     };
   }
 
@@ -20,7 +21,8 @@ class EditSmurf extends Component {
     this.setState({
         name: smurf.name,
         age: smurf.age,
-        height: smurf.height
+        height: smurf.height,
+        id: smurf.id
     })
   }
 
@@ -35,11 +37,13 @@ class EditSmurf extends Component {
   /// sends the new updated smurf to the actions to update the server then state
 
   updateSmurf = (event) => {
-      event.preventDefault();
+    event.preventDefault();
 
-      const { name, age, height } = this.state;
+    const { name, age, height, id } = this.state;
 
-    this.props.updateSmurf({ name, age, height })
+    this.props.updateSmurf({ name, age, height }, id );
+
+    this.props.history.push("/");
   }
 
 
@@ -51,7 +55,7 @@ class EditSmurf extends Component {
       return (
         <div className="SmurfForm">
         <h1>Edit Smurf!</h1>
-        <form onSubmit={this.changeSmurf}>
+        <form onSubmit={this.updateSmurf}>
           <input
             onChange={this.handleChange}
             placeholder="name"

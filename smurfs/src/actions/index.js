@@ -10,6 +10,10 @@ export const FAILED_SMURFS = 'FAILED_SMURFS'
 export const ADDING_SMURF = 'ADDING_SMURF'
 export const ADDED_SMURF = 'ADDED_SMURF'
 export const FAILED_ADD = 'FAILED_ADD'
+export const UPDATING_SMURF = 'UPDATING_SMURF'
+export const UPDATED_SMURF = 'UPDATED_SMURF'
+export const FAILED_UPDATE = 'FAILED_UPDATE'
+
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -56,6 +60,24 @@ export function addSmurf(payload) {
 
       .catch((error) => {
         dispatch({ type: FAILED_ADD, payload: error })
+      })
+
+      }
+};
+
+export function updateSmurf(payload, id) {
+
+  return dispatch => {
+    
+    dispatch({ type: UPDATING_SMURF });
+
+    return axios.put(`http://localhost:3333/smurfs/${id}`, payload)
+      .then((response) => {
+        dispatch({ type: UPDATED_SMURF, payload: response.data });
+      })
+
+      .catch((error) => {
+        dispatch({ type: FAILED_UPDATE, payload: error })
       })
 
       }
