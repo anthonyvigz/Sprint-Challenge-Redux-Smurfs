@@ -54,9 +54,28 @@ class SmurfVillage extends Component {
             <div className="cardsandform">
                 <form onSubmit={this.addSmurf}>
                     <h1>Add a Smurf!</h1>
-                    <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} />
-                    <input type="number" name="age" value={age} placeholder="Age" onChange={this.handleChange} />
-                    <input type="text" name="height" value={height} placeholder="Height" onChange={this.handleChange} />
+                    <input 
+                        type="text" 
+                        name="name" value={name} 
+                        placeholder="Name" 
+                        onChange={this.handleChange}
+                        maxlength="10" 
+                    />
+                    <input 
+                        type="text" 
+                        name="age" value={age} 
+                        placeholder="Age" 
+                        onChange={this.handleChange}
+                        maxlength="5" 
+                    />
+                    <input 
+                        type="text" 
+                        name="height" 
+                        value={height} 
+                        placeholder="Height" 
+                        onChange={this.handleChange}
+                        maxlength="5"
+                    />
                     <button type="submit">Add Smurf!</button>
                 </form>
                 <div className="smurfcards">

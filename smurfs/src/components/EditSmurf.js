@@ -74,18 +74,21 @@ class EditSmurf extends Component {
                     placeholder="name"
                     value={name}
                     name="name"
+                    maxlength="10"
                 />
                 <input
                     onChange={this.handleChange}
                     placeholder="age"
                     value={age}
                     name="age"
+                    maxlength="4"
                 />
                 <input
                     onChange={this.handleChange}
                     placeholder="height"
                     value={height}
                     name="height"
+                    maxlength="5"
                 />
             <button type="submit">Update Smurf</button>
             <button className="delete" onClick={this.deleteSmurf}>Delete</button>
