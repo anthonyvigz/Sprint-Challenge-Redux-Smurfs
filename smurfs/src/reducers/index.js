@@ -15,8 +15,11 @@
 */
 
 const initialState = {
-  friends: [],
-  isLoading: false,
+  smrufs: [],
+  fetchingSmurfs: false,
+  addingSmurf: false,
+  updatingSmurf: false,
+  deletingSmurf: false,
   error: null
 }
 
