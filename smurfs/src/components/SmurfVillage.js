@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Smurf from './Smurf'
 
 class SmurfVillage extends Component {
     constructor() {
@@ -20,7 +21,7 @@ class SmurfVillage extends Component {
         return (
             <div>
                 {smurfs.map((smurf) => {
-                    return <h1>{smurf.name}</h1>
+                    return <Smurf smurf={smurf} />
                 })}
             </div>
         )
