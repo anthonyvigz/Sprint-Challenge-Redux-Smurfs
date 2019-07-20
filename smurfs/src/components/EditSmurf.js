@@ -46,6 +46,18 @@ class EditSmurf extends Component {
     this.props.history.push("/");
   }
 
+  /// this will send a request to delete the current smurf
+
+  deleteSmurf = (event) => {
+      event.preventDefault();
+
+      const { id } = this.state;
+
+      this.props.deleteSmurf(id);
+
+      this.props.history.push("/");
+  }
+
 
   render() {
 
@@ -55,6 +67,7 @@ class EditSmurf extends Component {
       return (
         <div className="SmurfForm">
         <h1>Edit Smurf!</h1>
+        <h1>{name}</h1>
         <form onSubmit={this.updateSmurf}>
           <input
             onChange={this.handleChange}
