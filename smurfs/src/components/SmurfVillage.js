@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Smurf from './Smurf'
+import { addSmurf } from '../actions/index'
 
 class SmurfVillage extends Component {
     constructor() {
@@ -23,7 +24,19 @@ class SmurfVillage extends Component {
         })
     }
 
+    /// creating function to add smurf to the store
+
+    addSmurf = (event) => {
+        event.preventDefault();
+
+        const { name, age, height } = this.state;
+
+        this.props.addSmurf({ name, age, height, id: Date.now() })
+    }
+
     render() {
+        /// deconstructors for props and state
+
         const { smurfs } = this.props;
         const { name, age, height } = this.state;
 
@@ -36,7 +49,7 @@ class SmurfVillage extends Component {
                     return <Smurf smurf={smurf} key={smurf.id} />
                 })}
                 </div>
-                <form>
+                <form onSubmit={this.addSmurf}>
                     <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} />
                     <input type="number" name="age" value={age} placeholder="Age" onChange={this.handleChange} />
                     <input type="text" name="height" value={height} placeholder="Height" onChange={this.handleChange} />
@@ -53,9 +66,13 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = {
+    addSmurf: addSmurf
+}
+
 export default(
 	connect(
 		mapStateToProps,
-		null,
+		mapDispatchToProps,
 	)(SmurfVillage)
 )

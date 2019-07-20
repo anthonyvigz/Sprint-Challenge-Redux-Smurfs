@@ -7,6 +7,9 @@ import axios from 'axios'
 export const LOADING_SMURFS = 'LOADING_SMURFS'
 export const LOADED_SMURFS = 'LOADED_SMURFS'
 export const FAILED_SMURFS = 'FAILED_SMURFS'
+export const ADDING_SMURF = 'ADDING_SMURF'
+export const ADDED_SMURF = 'ADDED_SMURF'
+export const FAILED_ADD = 'FAILED_ADD'
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -38,4 +41,22 @@ export function getSmurfs() {
       })
 
       }
-  };
+};
+
+export function addSmurf(payload) {
+
+  return dispatch => {
+    
+    dispatch({ type: ADDING_SMURF });
+
+    return axios.post('http://localhost:3333/smurfs/', payload)
+      .then((response) => {
+        dispatch({ type: ADDED_SMURF, payload: response.data });
+      })
+
+      .catch((error) => {
+        dispatch({ type: FAILED_ADD, payload: error })
+      })
+
+      }
+};
