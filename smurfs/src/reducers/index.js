@@ -21,7 +21,7 @@ import {
 */
 
 const initialState = {
-  smrufs: [],
+  smurfs: [],
   fetchingSmurfs: false,
   addingSmurf: false,
   updatingSmurf: false,
@@ -33,11 +33,26 @@ const reducer = (state = initialState, action) => {
   switch(action.type) {
 
     case LOADING_SMURFS: {
-
+      return {
+        ...state,
+        fetchingSmurfs: true,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
     }
 
     case LOADED_SMURFS: {
-
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
+        addingSmurf: false,
+        updatingSmurf: false,
+        deletingSmurf: false,
+        error: null
+      }
     }
 
     case FAILED_SMURFS: {
