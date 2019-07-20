@@ -51,10 +51,15 @@ class SmurfVillage extends Component {
         /// returns the Smurf cards that have info for each smurf
 
         return (
-            <div>
+            <div className="cardsandform">
                 <div className="smurfcards">
                 {smurfs.map((smurf) => {
-                    return <Link to={`/smurfs/${smurf.id}`} key={smurf.id}><Smurf smurf={smurf} key={smurf.id} /></Link>
+                    return (
+                        <div classname="editlink">
+                            <Smurf smurf={smurf} key={smurf.id} />
+                            <Link to={`/smurfs/${smurf.id}`} key={smurf.id}><button>Edit</button></Link>
+                        </div>
+                    )
                 })}
                 </div>
                 <form onSubmit={this.addSmurf}>

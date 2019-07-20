@@ -18,9 +18,12 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" component={SmurfVillage} />
-        <Route exact path="/smurfs/:id" component={EditSmurf} />
+      <div className="mainbody">
+        <div className="headertitle">The Smurf Village</div>
+        <div className="App">
+          <Route exact path="/" component={SmurfVillage} />
+          <Route exact path="/smurfs/:id" component={EditSmurf} />
+        </div>
       </div>
     );
   }
