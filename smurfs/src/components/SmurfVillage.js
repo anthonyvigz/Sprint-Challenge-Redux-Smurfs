@@ -79,11 +79,11 @@ class SmurfVillage extends Component {
                     <button type="submit">Add Smurf!</button>
                 </form>
                 <div className="smurfcards">
-                {smurfs.map((smurf) => {
+                {smurfs.map((smurf, index) => {
                     return (
                         <div className="editlink">
-                            <Smurf smurf={smurf} key={smurf.id} />
-                            <Link to={`/smurfs/${smurf.id}`} key={smurf.id}><button>Edit</button></Link>
+                            <Smurf smurf={smurf} key={index} />
+                            <Link to={`/smurfs/${smurf.id}`} key={index}><button>Edit</button></Link>
                         </div>
                     )
                 })}
