@@ -1,28 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa&display=swap');
+
+
 .App {
-  text-align: center;
+  width: 600px;
+  background-color: #FFDD4A;
+  border-radius: 25px;
+  margin-top: -20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.headertitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5ADBFF;
+  height: 180px;
+  width: 800px;
+  border-radius: 70px;
+  font-size: 5em;
+  color: #3C6997;
+  margin-top: 25px;
+  font-family: 'Abril Fatface', cursive;
+  z-index: 1;
 }
 
-.App-header {
-  background-color: #222;
+.mainbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-color: #094074;
+}
+
+.cardsandform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.smurfcards {
+  color: #3C6997;
+  display: flex;
+  font-size: 0.70em;
+  justify-content: center;
+  width: 550px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.editlink {
+  background-color: #FE9000;
+  margin-top: 20px;
+  width: 150px;
   height: 150px;
-  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Comfortaa', cursive;
+  margin: 20px 10px;
+  margin-bottom: 0;
+}
+
+.cardsandform form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  background-color: #094074;
+  width: 300px;
+  height: 325px;
+  border-radius: 15px;
+  align-items: center;
+  border: solid 3px #FE9000;
+  z-index: 1;
+}
+
+.cardsandform form input {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.editlink button {
+  margin-bottom: 15px;
+  font-family: 'Comfortaa';
+  width: 80px;
+  font-size: 1.1em;
+  background-color: #3C6997;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.cardsandform form h1 {
+  font-family: 'Abril Fatface', cursive;
+  color: white;
+  letter-spacing: 2px;
 }
 
-.App-intro {
-  font-size: large;
+form button {
+  margin-bottom: 15px;
+  font-family: 'Comfortaa';
+  width: 130px;
+  padding: 10px;
+  font-size: 1.1em;
+  background-color: #3C6997;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.SmurfForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SmurfForm h1 {
+  font-family: 'Abril Fatface', cursive;
+  color: #3C6997;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.smurfname {
+  font-family: 'Abril Fatface', cursive;
+  color: #5ADBFF;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: -15px;
+}
+
+.SmurfForm form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #094074;
+  width: 300px;
+  height: 350px;
+  border-radius: 15px;
+  align-items: center;
+  border: solid 3px #FE9000;
+  z-index: 1;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.SmurfForm form input {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.delete {
+  background-color: red;
+}
+
+.SmurfForm form button {
+  width: 225px;
 }
